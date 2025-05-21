@@ -1,0 +1,218 @@
+@use '../var/color' as *;
+
+.create-recipe-page {
+	$title-font-size: 3.25rem;
+	$legend-font-size: 2.25rem;
+	$item-font-size: 1.65rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+	background-color: color(page, background);
+
+	>header {
+		width: 100%;
+		position: relative;
+		
+
+		>.btn-back {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+		}
+
+		h1 {
+			font-size: $title-font-size;
+			text-align: center;
+		}
+	}
+
+
+	&__form {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 1000px;
+		width: 100%;
+		font-size: $item-font-size;
+		background-color: white;
+		border-radius: 16px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+		fieldset, legend, label, input, select, textarea, button {
+			font-size: $item-font-size;
+		}
+
+		>.image {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.75rem;
+
+			label {
+				cursor: pointer;
+				font-size: $item-font-size;
+				font-weight: 500;
+
+			}
+
+			>.image-preview {
+				height: 300px;
+				width: 300px;
+				object-fit: cover;
+				box-shadow: 0 0 3px gray;
+				border-radius: 12px;
+				background-color: #f5f5f5;
+			}
+
+			>.image-input {
+				display: none;
+			}
+		}
+
+		.group {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			height: 56px;
+			background-color: #fafafa;
+			position: relative;
+			transition: border-color 0.3s;
+
+			&:focus-within {
+				border-color: color(primary);
+			}
+
+			> input[type="number"] {
+				&::-webkit-outer-spin-button,
+				&::-webkit-inner-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+				-moz-appearance: textfield;
+			}
+
+			> select,
+			> input:not([type="checkbox"]) {
+				width: 100%;
+				height: 100%;
+				padding: 1rem;
+				border: none;
+				background: transparent;
+				font-size: $item-font-size;
+				color: #333;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			> label {
+				pointer-events: none;
+				position: absolute;
+				top: 50%;
+				left: 1rem;
+				transform: translateY(-50%);
+				transition: 0.2s ease all;
+				background-color: white;
+				color: #777;
+			}
+
+			select:not(:placeholder-shown) + label,
+			input:not(:placeholder-shown) + label,
+			select:focus + label,
+			input:focus + label {
+				top: 0;
+				color: color(primary);
+			}
+		}
+
+		>.basic-info {
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			border-radius: 12px;
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+			background-color: #fff;
+		}
+
+		>.time-difficulty {
+			display: flex;
+			padding: 2rem;
+			border-radius: 12px;
+			gap: 1rem;
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+			background-color: #fff;
+
+			>.servings {
+			}
+
+			>.difficulty {
+				flex: 1;
+			}
+
+			>.is-vegetarian {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+
+				input[type="checkbox"] {
+					transform: scale(1.3);
+				}
+			}
+
+			>.min-max {
+				width: 110px;
+			}
+		}
+
+		fieldset {
+			border: none;
+			padding: 1rem;
+			background-color: #fafafa;
+			border-radius: 12px;
+
+			legend {
+				font-size: $legend-font-size;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		.ingredients-box,
+		.instructions-box {
+			font-size: $item-font-size;
+			padding: 1rem;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			background-color: white;
+			transition: border-color 0.3s;
+			resize: none;
+			width: 100%;
+
+			&:focus {
+				border-color: color(primary);
+				outline: none;
+			}
+		}
+
+		button.submit {
+			font-size: $item-font-size;
+			padding: 1rem 2rem;
+			border: none;
+			border-radius: 10px;
+			background-color: color(primary);
+			color: white;
+			font-weight: 600;
+			cursor: pointer;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			transition: background-color 0.3s ease;
+
+			&:hover {
+				background-color: darken(color(primary), 10%);
+			}
+		}
+	}
+}

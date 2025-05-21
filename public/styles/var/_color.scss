@@ -1,0 +1,57 @@
+$color-white: #F4F4F8;
+$color-black: #2A2C41;
+$color-primary: #FF724C;
+$color-secondary: #F9C55F;
+
+$colors: (
+	primary: $color-primary,
+	secondary: $color-secondary,
+
+	nav: (
+		background: $color-white,
+		text: $color-black,
+		title: $color-primary,
+		border: $color-black,
+	),
+
+	page: (
+		background: $color-white,
+		text: $color-black,
+		title: $color-primary,
+	),
+
+	section: (
+		title: $color-primary,
+	),
+
+	button: (
+		primary: (
+			background: $color-primary,
+			text: $color-white,
+		),
+		secondary: (
+			background: transparent,
+			border: $color-primary,
+			text: $color-primary,
+		),
+		tertiary: (
+			background: transparent,
+			text: $color-white,
+		),
+	),
+	
+	card: (
+		background: $color-black,
+		text: $color-white,
+	),
+);
+
+@function color($keys...) {
+	$value: $colors;
+
+	@each $key in $keys {
+		$value: map-get($value, $key);
+	}
+
+	@return $value;
+}

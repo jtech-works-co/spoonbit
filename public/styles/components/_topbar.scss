@@ -1,0 +1,21 @@
+@use '../var/color' as *;
+
+.topbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-bottom: 1px solid color(nav, border);
+	background-color: color(nav, background);
+
+	>.logo {
+		color: color(nav, title);
+	}
+
+	>.actions {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+	}
+}

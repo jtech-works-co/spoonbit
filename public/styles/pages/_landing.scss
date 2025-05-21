@@ -1,0 +1,44 @@
+@use '../var/color' as *;
+@use '../var/size' as *;
+@use '../var/respond' as *;
+
+.landing-page {
+	display: grid;
+	grid-template-areas: 
+		"sidebar topbar"
+		"sidebar content";
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto;
+	
+	&__topbar {
+		position: sticky;
+		top: 0;
+		grid-area: topbar;
+	}
+
+	&__content {
+		max-width: 100svw;
+		grid-area: content;
+		padding: 1rem;
+		overflow-y: auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+		gap: 1rem;
+		justify-content: center;
+
+		@include respond(1240px) {
+			grid-template-columns: repeat(auto-fill, minmax(250px, max-content));
+		}
+
+		>* {
+			padding: 2rem;
+			height: 250px;
+			background-color: color(card, background);
+			color: color(card, text);
+
+			@include respond(1240px) {
+				width: 100%;
+			}
+		}
+	}
+}
