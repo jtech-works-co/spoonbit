@@ -9,6 +9,7 @@
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.9.0",
     "image-to-base64": "^2.2.0",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
@@ -45,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/image-to-base64": "^2.1.2"
   }
 }
